@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="TECHCARE computer and laptop repair service booking system" />
+  <title>TECHCARE | Computer Service Booking</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home"><span class="brand-mark">T</span> TECH<span>CARE</span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav id="mainNav">
+      <a href="#home">Home</a><a href="#services">Services</a><a href="#prices">Price List</a>
+      <a href="#booking">Book Service</a><a href="#track">Track Booking</a><a href="#contact">Contact</a>
+      <button class="nav-admin" id="openAdmin">Admin Login</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="pulse"></span> COMPUTER CARE, MADE SIMPLE</p>
+        <h1>Tech problems?<br><span>We fix them.</span></h1>
+        <p class="hero-text">Reliable computer and laptop repair, transparent pricing, and easy online service booking — all in one place.</p>
+        <div class="hero-actions"><a class="btn btn-primary" href="#booking">Book a Service <span>↗</span></a><a class="btn btn-ghost" href="#services">Explore Services</a></div>
+        <div class="hero-stats"><div><strong>6+</strong><small>Service options</small></div><div><strong>Easy</strong><small>Booking process</small></div><div><strong>Clear</strong><small>Price estimates</small></div></div>
+      </div>
+      <div class="hero-visual">
+        <div class="glow"></div><div class="device-card">
+          <div class="device-top"><span></span><span></span><span></span><small>TECHCARE SYSTEM</small></div>
+          <div class="device-screen"><div class="screen-icon">⌘</div><p>DIAGNOSTICS</p><h3>Your tech, our care.</h3><div class="scan-line"></div><div class="screen-status"><span class="status-dot"></span> READY TO HELP</div></div>
+          <div class="device-base"></div>
+        </div>
+        <div class="floating-chip chip-one">✓ Trusted service</div><div class="floating-chip chip-two">⚡ Fast booking</div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="section-heading"><div><p class="eyebrow">WHAT WE DO</p><h2>Services built around <span>your tech.</span></h2></div><p>Choose a service, tell us what is wrong, and send a booking request in minutes.</p></div>
+      <div class="service-grid" id="serviceGrid"></div>
+    </section>
+
+    <section class="section price-section" id="prices">
+      <div class="section-heading"><div><p class="eyebrow">NO SURPRISES</p><h2>Simple, clear <span>pricing.</span></h2></div><p>These are sample estimates for your college project. Final costs may change after diagnosis.</p></div>
+      <div class="price-table-wrap"><table><thead><tr><th>Service</th><th>Typical turnaround</th><th>Starting price</th><th></th></tr></thead><tbody id="priceTable"></tbody></table></div>
+      <p class="note">* Demo price list only. Update the rates according to your actual service centre.</p>
+    </section>
+
+    <section class="section booking-layout" id="booking">
+      <div class="booking-intro"><p class="eyebrow">LET'S GET IT FIXED</p><h2>Book your<br><span>service today.</span></h2><p>Fill in your details and TECHCARE will create a demo booking ID you can use to track the request on this device.</p><div class="booking-perk"><span>01</span><div><strong>Share the issue</strong><small>Choose a service and describe the problem.</small></div></div><div class="booking-perk"><span>02</span><div><strong>Get your booking ID</strong><small>Keep it safe to check your request later.</small></div></div></div>
+      <form id="bookingForm" class="panel form-panel">
+        <div class="form-title"><div><p class="eyebrow">NEW REQUEST</p><h3>Service booking</h3></div><span class="form-icon">↗</span></div>
+        <div class="form-grid">
+          <label>Full name<input name="name" required maxlength="70" placeholder="Enter your name" /></label>
+          <label>Mobile number<input name="phone" required inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="10-digit mobile number" /></label>
+          <label>Email (optional)<input name="email" type="email" placeholder="rathodjetan21@gmail.com" /></label>
+          <label>Device type<select name="device" required><option value="">Select device</option><option>Laptop</option><option>Desktop Computer</option><option>Printer</option><option>Other</option></select></label>
+          <label class="full">Service required<select name="service" id="bookingService" required><option value="">Choose a service</option></select></label>
+          <label>Preferred date<input name="date" type="date" id="bookingDate" required /></label>
+          <label>Preferred time<select name="time" required><option value="">Select time</option><option>10:00 AM – 12:00 PM</option><option>12:00 PM – 02:00 PM</option><option>02:00 PM – 04:00 PM</option><option>04:00 PM – 06:00 PM</option></select></label>
+          <label class="full">Describe the issue<textarea name="issue" required rows="3" maxlength="500" placeholder="Tell us what is happening..."></textarea></label>
+        </div>
+        <div class="estimate-row"><span>Estimated starting price</span><strong id="bookingEstimate">Select a service</strong></div>
+        <button class="btn btn-primary full-btn" type="submit">Submit Booking <span>→</span></button>
+        <p class="form-footnote">Demo only: this form saves requests in this browser, not to an online server.</p>
+      </form>
+    </section>
+
+    <section class="section track-section" id="track">
+      <div class="section-heading"><div><p class="eyebrow">STAY IN THE LOOP</p><h2>Track your <span>booking.</span></h2></div><p>Enter the booking ID shown after submission to view the latest saved demo status.</p></div>
+      <form id="trackForm" class="track-form"><input id="trackId" required placeholder="e.g. TC-ABC123" aria-label="Booking ID" /><button class="btn btn-primary" type="submit">Track Status →</button></form>
+      <div id="trackResult" class="track-result" aria-live="polite"></div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div><p class="eyebrow">NEED A HAND?</p><h2>Let's get your tech<br><span>back on track.</span></h2><p>Questions about a repair or booking? Contact TECHCARE using the demo contact details below.</p></div>
+      <div class="contact-card"><div class="contact-line"><span class="contact-icon">✉</span><div><small>EMAIL</small><strong>rathodjetan21@gmail.com</strong></div></div><div class="contact-line"><span class="contact-icon">☎</span><div><small>PHONE</small><strong>+91 70585 21232</strong></div></div><div class="contact-line"><span class="contact-icon">⌖</span><div><small>LOCATION</small><strong>Bodhare, Chalisgaon, Jalgaon, Maharashtra, India</strong></div></div><a class="btn btn-whatsapp" id="whatsappLink" href="#" target="_blank" rel="noopener">☏ Contact on WhatsApp</a><p class="note">Contact TECHCARE for computer and laptop service bookings.</p></div>
+    </section>
+  </main>
+
+  <footer><a class="brand" href="#home"><span class="brand-mark">T</span> TECH<span>CARE</span></a><p>© <span id="year"></span> TECHCARE. SY BCA Field Project Demo.</p><a href="#home">Back to top ↑</a></footer>
+
+  <div class="modal-backdrop" id="adminModal" hidden>
+    <section class="modal panel" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
+      <button class="modal-close" id="closeAdmin" aria-label="Close">×</button>
+      <div id="adminLoginView"><p class="eyebrow">RESTRICTED AREA</p><h3 id="adminTitle">Admin login</h3><p class="muted">Demo credentials: <b>admin</b> / <b>techcare123</b></p>
+        <form id="adminLoginForm"><label>Username<input name="username" required autocomplete="username" placeholder="Admin username" /></label><label>Password<input name="password" type="password" required autocomplete="current-password" placeholder="Password" /></label><button class="btn btn-primary full-btn" type="submit">Login to Dashboard →</button><p class="form-footnote">For demonstration only. This is not secure authentication.</p></form>
+      </div>
+      <div id="adminDashboardView" hidden><p class="eyebrow">OVERVIEW</p><h3>Booking dashboard</h3><div class="dashboard-stats"><div><small>Total</small><strong id="totalCount">0</strong></div><div><small>Pending</small><strong id="pendingCount">0</strong></div><div><small>Completed</small><strong id="completedCount">0</strong></div></div><div class="admin-table-wrap"><table><thead><tr><th>ID / Customer</th><th>Service</th><th>Status</th><th>Update</th></tr></thead><tbody id="adminRows"></tbody></table></div><button class="btn btn-ghost full-btn" id="adminLogout" type="button">Log out</button></div>
+    </section>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
